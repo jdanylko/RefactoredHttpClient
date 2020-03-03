@@ -1,0 +1,22 @@
+﻿@model UsingHttpClientExample.ApiCollection.Marvel.Models.MarvelComic
+
+<h1>Wolverine Appearances (showing first 20)</h1>
+<table class="table table-bordered table-responsive table-striped">
+    <thead>
+    <tr>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var comic in Model.data.results)
+    {
+        <tr>
+            <td><img src="@(comic.thumbnail.path+"."+comic.thumbnail.extension)" width="250"/></td>
+            <td>@comic.title</td>
+            <td>@Html.Raw(comic.description)</td>
+        </tr>
+    }
+    </tbody>
+</table>
